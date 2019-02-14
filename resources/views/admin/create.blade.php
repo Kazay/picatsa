@@ -24,6 +24,8 @@
         <input type="text" name="url"/>
         <label for="description">Description : </label>
         <textarea name="description"></textarea>
+        <label for="visible">Visible ? </label>
+        <input type="checkbox" name="visible" id="visible" value="1">
         <input type="submit" value="Create">
     </form>
 </main>

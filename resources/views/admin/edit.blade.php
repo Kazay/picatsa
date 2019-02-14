@@ -24,6 +24,8 @@
         <input type="text" name="url" value="{{ $thumbnail->url }}"/>
         <label for="description">Description : </label>
         <textarea name="description">{{ $thumbnail->description }}</textarea>
+        <label for="visible">Visible ? </label>
+        <input type="checkbox" name="visible" id="visible" value="1" @if ($thumbnail->visible) checked @endif>
         <input type="submit" value="Edit">
     </form>
 </main>

@@ -18,6 +18,7 @@ class CreateThumbnailsTable extends Migration
             $table->string('caption', 75);
             $table->text('description');
             $table->string('url', 255);
+            $table->boolean('visible');
             $table->timestamps();
         });
     }

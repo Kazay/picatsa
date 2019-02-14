@@ -11,6 +11,6 @@ class ThumbnailsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Thumbnail::class, 50)->create();
+        factory(App\Thumbnail::class, 3)->create();
     }
 }

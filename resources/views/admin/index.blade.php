@@ -22,8 +22,9 @@
     @foreach ($thumbnails as $item)
     <article>
         <img src="{{ $item->url }}" alt="{{ $item->caption }}">
-        <p><a href="{{ route('show',$item->id) }}">{{ $item->caption }}</a></p>
+        <p>{{ $item->caption }}</p>
         <p>{{ $item->description }}</p>
+        <p>@if ($item->visible) Visible @else Hidden @endif</p>
         <p>
             <a href=""onclick="event.preventDefault();document.getElementById('edit-form[{{$item->id}}]').submit();">Edit</a>
         </p>

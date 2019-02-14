@@ -39,11 +39,14 @@ class ThumbnailController extends AdminController
     public function store(Request $request)
     {
         $this->validateForm($request);
+        
+        $visible = ($request->visible) ? 1 : 0;
 
         $thumbnail = Thumbnail::create([
             'caption' => $request->caption,
             'url' => $request->url,
             'description' => $request->description,
+            'visible' => $visible,
         ]);
 
         if($thumbnail->save())
@@ -77,9 +80,9 @@ class ThumbnailController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Thumbnail $thumbnail)
     {
-        $thumbnail = Thumbnail::find($id);
+        //$thumbnail = Thumbnail::find($id);
 
         return view('admin.edit', ['thumbnail' => $thumbnail]);
     }
@@ -96,6 +99,8 @@ class ThumbnailController extends AdminController
         $message = '';
         $status = '';
 
+        $visible = ($request->visible) ? 1 : 0;
+
         $this->validateForm($request);
 
         $thumbnail = Thumbnail::find($id);
@@ -104,6 +109,7 @@ class ThumbnailController extends AdminController
             'caption' => $request->caption,
             'url' => $request->url,
             'description' => $request->description,
+            'visible' => $visible,
         ]);
 
         if($thumbnail->save())
