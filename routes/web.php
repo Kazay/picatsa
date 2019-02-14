@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'FrontController@index')->name('home');;
+Route::get('/show/{id}', 'FrontController@show')->name('show');
+
+Auth::routes();
+
+Route::prefix('admin')->group(function () {
+    Route::resource('thumbnail', 'ThumbnailController');
 });
